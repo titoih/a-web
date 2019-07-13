@@ -5,7 +5,7 @@ import { Layout } from 'antd';
 import Header from './components/misc/Header';
 import Register from './components/authentication/Register';
 import Login from './components/authentication/Login';
-import Test from './components/authentication/Test';
+import ReviewsList from './components/reviews/ReviewsList';
 import BreadCrumb from './components/misc/BreadCrumb';
 import Profile from './components/authentication/Profile';
 
@@ -20,7 +20,7 @@ class App extends Component {
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/user/:id" component={Profile} />
-              <Route exact path="/test" component={Test} />
+              <Route exact path="/reviews" component={ReviewsList} />
             </Switch>
             </div>
           <Header />

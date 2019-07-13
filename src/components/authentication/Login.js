@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import authenticationService from '../../services/AuthenticationService';
-import { AuthContext } from '../../context/AuthStore';
 
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 
@@ -154,12 +153,4 @@ class Login extends React.Component {
   }
 }
 
-const LoginWithAuthContext = (loginProps) => {
-  return (
-    <AuthContext.Consumer>
-      {(consumerProps) => (<Login {...consumerProps} {...loginProps} />)}
-    </AuthContext.Consumer>
-  );
-}
-
-export default LoginWithAuthContext;
+export default Login;

@@ -1,6 +1,6 @@
 import React from 'react';
 import authenticationService from '../../services/AuthenticationService';
-import { Card, Icon, Avatar,Statistic, Row, Col } from 'antd';
+import { Card, Icon, Statistic, Row, Col } from 'antd';
 const { Meta } = Card;
 
 class Profile extends React.Component {

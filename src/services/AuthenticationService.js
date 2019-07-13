@@ -9,4 +9,8 @@ const login = (user) => http.post('/login', user)
 const getProfile = id => http.get(`/user/${id}`)
   .then(res => Promise.resolve(res.data));
 
-  export default { register, login, getProfile }
+  const getReviews = () => http.get('/reviews')
+  .then(res => Promise.resolve(res.data));
+
+
+  export default { register, login, getProfile, getReviews }
