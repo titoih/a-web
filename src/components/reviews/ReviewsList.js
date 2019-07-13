@@ -1,19 +1,7 @@
 import React from 'react';
 import authenticationService from '../../services/AuthenticationService';
-import { Skeleton, List, Avatar, Icon } from 'antd';
-
-const listData = [];
-for (let i = 0; i < 3; i++) {
-  listData.push({
-    href: 'http://ant.design',
-    title: `ant design part ${i}`,
-    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-    description:
-      'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-    content:
-      'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-  });
-}
+import { Skeleton, List, Rate, Comment, Tooltip, Avatar, Icon } from 'antd';
+import moment from 'moment';
 
 const IconText = ({ type, text }) => (
   <span>
@@ -47,34 +35,51 @@ class ReviewsList extends React.Component  {
         <List
           itemLayout="vertical"
           size="large"
-          dataSource={listData}
+          dataSource={this.state.reviews}
           renderItem={item => (
             <List.Item
               key={item.title}
               actions={
                 [
-                  <IconText type="star-o" text="156" />,
-                  <IconText type="like-o" text="156" />,
+                  <IconText type="heart" text="156" />,
                   <IconText type="message" text="2" />,
                 ]
               }
               extra={
                 (
                   <img
-                    width={272}
+                    width={'100%'}
                     alt="logo"
-                    src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
+                    src={item.resource.imageURL}
                   />
                 )
               }
             >
               <Skeleton loading={false} active avatar>
                 <List.Item.Meta
-                  avatar={<Avatar src={item.avatar} />}
-                  title={<a href={item.href}>{item.title}</a>}
+                  author={'Han Solo'}
+                  title={item.resource.kind + ' - ' + item.resource.title}
                   description={item.description}
                 />
-                {item.content}
+                <Comment
+                author={item.user.nickName}
+                avatar={
+                  <Avatar
+                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                  alt="Han Solo"
+                  />}
+                  content={
+          <p>
+            {item.comment}
+          </p>
+        }
+        datetime={
+          <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
+            <span>{moment().fromNow()}</span>
+          </Tooltip>
+        }
+                />
+                <Rate disabled defaultValue={Number(item.rate)}/>
               </Skeleton>
             </List.Item>
           )}
