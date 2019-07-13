@@ -45,42 +45,32 @@ class ReviewsList extends React.Component  {
                   <IconText type="message" text="2" />,
                 ]
               }
-              extra={
-                (
-                  <img
-                    width={'100%'}
-                    alt="logo"
-                    src={item.resource.imageURL}
-                  />
-                )
-              }
             >
-              <Skeleton loading={false} active avatar>
-                <List.Item.Meta
-                  author={'Han Solo'}
-                  title={item.resource.kind + ' - ' + item.resource.title}
-                  description={item.description}
-                />
-                <Comment
+               <Comment
                 author={item.user.nickName}
                 avatar={
                   <Avatar
                   src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-                  alt="Han Solo"
+                  alt={item.user.nickName}
                   />}
-                  content={
-          <p>
-            {item.comment}
-          </p>
-        }
-        datetime={
-          <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
-            <span>{moment().fromNow()}</span>
-          </Tooltip>
-        }
+                content={
+                  <p style={{textAlign:"left"}}><i>"{item.comment}"</i></p>
+                }
+                datetime={
+                  <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
+                  <span>{moment().fromNow()}</span>
+                  </Tooltip>
+                }     
                 />
-                <Rate disabled defaultValue={Number(item.rate)}/>
-              </Skeleton>
+              <div>
+              {item.resource.kind + ' / ' + item.resource.title}
+              </div>
+              <Rate disabled defaultValue={Number(item.rate)}/>
+              <img
+                style={{display: 'block', margin:'auto'}}
+                alt="logo"
+                src={item.resource.imageURL}
+              />
             </List.Item>
           )}
         />
