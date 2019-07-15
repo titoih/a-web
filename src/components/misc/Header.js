@@ -18,7 +18,7 @@ const Header = () => {
       <Menu.Item key="2"><Icon type="search" style={iconHeader}/></Menu.Item>
       <Menu.Item key="4"><Icon type="heart" style={iconHeader}/></Menu.Item>
       <Menu.Item key="3"><Link to="/login"><Icon type="user" style={iconHeader}/></Link></Menu.Item>
-      <Menu.Item key="1"><Icon type="form" style={iconHeader}/></Menu.Item>
+      <Menu.Item key="1"><Link to="/post"><Icon type="form" style={iconHeader}/></Link></Menu.Item>
     </Menu>
   )
 }

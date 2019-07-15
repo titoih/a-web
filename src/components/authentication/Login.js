@@ -61,7 +61,6 @@ class Login extends React.Component {
           authenticationService.login(this.state.user)
             .then(
               (user) => {
-                console.log(user + 'hola')
                 this.setState({ 
                   user: {
                     ...this.state.user,

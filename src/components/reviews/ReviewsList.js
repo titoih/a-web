@@ -1,6 +1,6 @@
 import React from 'react';
 import authenticationService from '../../services/AuthenticationService';
-import { Skeleton, List, Rate, Comment, Tooltip, Avatar, Icon } from 'antd';
+import { List, Rate, Comment, Tooltip, Avatar, Icon } from 'antd';
 import moment from 'moment';
 
 const IconText = ({ type, text }) => (

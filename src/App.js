@@ -6,6 +6,7 @@ import Header from './components/misc/Header';
 import Register from './components/authentication/Register';
 import Login from './components/authentication/Login';
 import ReviewsList from './components/reviews/ReviewsList';
+import ReviewsPost from './components/reviews/ReviewsPost';
 import BreadCrumb from './components/misc/BreadCrumb';
 import Profile from './components/authentication/Profile';
 
@@ -21,6 +22,7 @@ class App extends Component {
               <Route exact path="/login" component={Login} />
               <Route exact path="/user/:id" component={Profile} />
               <Route exact path="/reviews" component={ReviewsList} />
+              <Route exact path="/post" component={ReviewsPost} />
             </Switch>
             </div>
           <Header />

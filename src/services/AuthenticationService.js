@@ -9,8 +9,11 @@ const login = (user) => http.post('/login', user)
 const getProfile = id => http.get(`/user/${id}`)
   .then(res => Promise.resolve(res.data));
 
-  const getReviews = () => http.get('/reviews')
+const getReviews = () => http.get('/reviews')
   .then(res => Promise.resolve(res.data));
 
+const getResources = () => http.get('/resources')
+  .then(res => Promise.resolve(res.data))
 
-  export default { register, login, getProfile, getReviews }
+
+  export default { register, login, getProfile, getReviews, getResources }
