@@ -18,6 +18,7 @@ class SearchBar extends React.Component {
       type="text" 
       placeholder="Escribe un título" 
       autoComplete="off"
+      style={{display:this.props.showList}}
       />
       
     )

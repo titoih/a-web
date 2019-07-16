@@ -1,7 +1,7 @@
 import React from 'react';
 import authenticationService from '../../services/AuthenticationService';
 import SearchBar from './SearchBar';
-import TitleList from './TitleList'
+import ListPost from './ListPost'
 
 
 class ReviewsPost extends React.Component {
@@ -9,7 +9,8 @@ class ReviewsPost extends React.Component {
     data:[],
     resources:[],
     text:'',
-    resourceSelection: []
+    show:'',
+    selection:[]
   }
 
   fetchResources = () => {
@@ -32,32 +33,35 @@ class ReviewsPost extends React.Component {
       resources:this.state.data.filter(eachElement => eachElement.title.toLowerCase().includes(text.toLowerCase())),
       text:text
     })
-    if(!text) {
-      this.fetchResources() 
-    }
   }
 
-  getResource = (event) => {
+  addTitle = (event) => {
     this.setState({
-      resourceSelection:event
+      text:event.title
     })
+    this.setState({
+      show:'none'
+    })
+    this.setState({
+      resources:[event]
+    })
+
   }
 
   render() {
-    console.log(this.state)
     return (
       <div>
         <SearchBar 
         searchText ={this.searchText} 
         textState = {this.state.text}
-        getResource={this.getResource}
+        showList={this.state.show}
         />
-        <ul>
-        {
-          this.state.text ? this.state.resources.map((element, index) => {
-          return <TitleList key={index} element={element}/>}) : ''
-        }
-        </ul>
+        <ListPost
+        text={this.state.text}
+        resources={this.state.resources}
+        addTitle={this.addTitle}   
+        showList={this.state.show}      
+        />
       </div>
     )
   }
