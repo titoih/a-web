@@ -9,12 +9,15 @@ import ReviewsList from './components/reviews/ReviewsList';
 import ReviewsPost from './components/reviews/ReviewsPost';
 import BreadCrumb from './components/misc/BreadCrumb';
 import Profile from './components/authentication/Profile';
+const {  Content } = Layout;
+
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Layout className="layout">
+        <Content style={{display:'block',clear:"both"}}>
             <BreadCrumb />
             <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
             <Switch>
@@ -25,7 +28,8 @@ class App extends Component {
               <Route exact path="/post" component={ReviewsPost} />
             </Switch>
             </div>
-          <Header />
+        </Content>
+        <Header style={{clear:'both'}}/>
         </Layout>
       </div>
     );

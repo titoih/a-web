@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import authenticationService from '../../services/AuthenticationService';
-
+import AuthenticationService from '../../services/AuthenticationService';
+import { withAuthConsumer } from '../../context/AuthStore'
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 
 const validations = {
@@ -58,7 +58,7 @@ class Login extends React.Component {
       })
   } else {
         if(this.isValid()) {
-          authenticationService.login(this.state.user)
+          AuthenticationService.login(this.state.user)
             .then(
               (user) => {
                 this.setState({ 
@@ -69,6 +69,8 @@ class Login extends React.Component {
                   },
                   isLogged:true
                 })
+
+                this.props.onUserChange(user)
               },
               (error) => {
                 const { message, errors } = error.response.data;
@@ -152,4 +154,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default withAuthConsumer(Login);

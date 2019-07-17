@@ -32,7 +32,7 @@ class Profile extends React.Component {
   render() {
     return (
       <Card
-      style={{ width: 300 }}
+      style={{ width: 300, margin:'auto' }}
       cover={
         <img
           alt="example"

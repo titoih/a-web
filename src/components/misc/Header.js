@@ -4,7 +4,7 @@ import { Icon } from 'antd';
 import { Link } from 'react-router-dom';
 
 const iconHeader = { fontSize: '15px', color: 'white' };
-const navbarBottom = { lineHeight: '64px', position: 'sticky', bottom: '0px', width:'100%' };
+const navbarBottom = { lineHeight: '64px', position: 'fixed', bottom: '0px', width:'100%',clear:'both' };
 const Header = () => {
   return (
     // <div className="logo" />

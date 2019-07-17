@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom'
 import 'antd/dist/antd.css';
 import App from './App';
+import { AuthStore } from './context/AuthStore'
 
 ReactDOM.render(
   <Router>
-    <App/>
+    <AuthStore>
+      <App/>
+    </AuthStore>
   </Router>, 
 document.getElementById('root')
 );

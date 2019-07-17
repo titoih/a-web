@@ -12,8 +12,18 @@ const getProfile = id => http.get(`/user/${id}`)
 const getReviews = () => http.get('/reviews')
   .then(res => Promise.resolve(res.data));
 
+const postReviews = (userReview) => http.post('/reviews', userReview)
+.then(res => Promise.resolve(res.data));
+
 const getResources = () => http.get('/resources')
   .then(res => Promise.resolve(res.data))
 
 
-  export default { register, login, getProfile, getReviews, getResources }
+  export default { 
+    register, 
+    login, 
+    getProfile, 
+    getReviews, 
+    getResources, 
+    postReviews 
+  }
