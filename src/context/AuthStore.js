@@ -14,7 +14,9 @@ class AuthStore extends Component {
     else localStorage.removeItem(CURRENT_USER_KEY)
   }
 
-  isAuthenticated = () => this.state.user && this.state.user.email
+  isAuthenticated = () => {
+    return this.state.user && this.state.user.email
+  }
 
   render() {
     return (

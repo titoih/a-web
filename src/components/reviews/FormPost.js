@@ -47,7 +47,7 @@ class FormPost extends React.Component {
   }
 
   render() {
-    console.log(this.state)
+    console.log(this.props)
     if(this.state.isPosted) {
       return <Redirect to={`/user/${this.props.user.id}`}/>
     }
