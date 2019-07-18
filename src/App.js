@@ -4,11 +4,13 @@ import { Switch, Route } from 'react-router-dom'
 import { Layout } from 'antd';
 import Header from './components/misc/Header';
 import Register from './components/authentication/Register';
+import PrivateRoute from './guards/PrivateRoute';
 import Login from './components/authentication/Login';
 import ReviewsList from './components/reviews/ReviewsList';
 import ReviewsPost from './components/reviews/ReviewsPost';
 import BreadCrumb from './components/misc/BreadCrumb';
 import Profile from './components/authentication/Profile';
+
 const {  Content } = Layout;
 
 
@@ -23,9 +25,9 @@ class App extends Component {
             <Switch>
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
-              <Route exact path="/user/:id" component={Profile} />
-              <Route exact path="/reviews" component={ReviewsList} />
-              <Route exact path="/post" component={ReviewsPost} />
+              <PrivateRoute exact path="/user/:id" component={Profile} />
+              <PrivateRoute exact path="/reviews" component={ReviewsList} />
+              <PrivateRoute exact path="/post" component={ReviewsPost} />
             </Switch>
             </div>
         </Content>
