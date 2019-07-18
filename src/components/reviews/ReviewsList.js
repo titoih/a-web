@@ -74,6 +74,7 @@ class ReviewsList extends React.Component  {
             </List.Item>
           )}
         />
+        <div style={{display:'block',clear:'both', margin:'2em 0em'}}></div>
       </div>
     );
   }

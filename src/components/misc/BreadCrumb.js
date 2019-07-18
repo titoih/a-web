@@ -14,7 +14,7 @@ const BreadCrumb = (props) => {
       <Meta 
       style={{display:'inline-block'}}
       avatar={
-      <Link to={`/user/${props.user}`}><Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" /></Link>
+      <Link to={`/user/${props.user.id}`}><Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" /></Link>
       }
       /></Breadcrumb.Item>
       <Breadcrumb.Item>List</Breadcrumb.Item>

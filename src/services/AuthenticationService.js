@@ -18,6 +18,9 @@ const postReviews = (userReview) => http.post('/reviews', userReview)
 const getResources = () => http.get('/resources')
   .then(res => Promise.resolve(res.data))
 
+const getFriends = id => http.get('/friends')
+  .then(res => Promise.resolve(res.data));
+
 
   export default { 
     register, 
@@ -25,5 +28,6 @@ const getResources = () => http.get('/resources')
     getProfile, 
     getReviews, 
     getResources, 
-    postReviews 
+    postReviews,
+    getFriends 
   }

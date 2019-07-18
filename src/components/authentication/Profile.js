@@ -1,7 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import authenticationService from '../../services/AuthenticationService';
-import { Card, Icon, Statistic, Row, Col } from 'antd';
+import AddFriends from '../friends/AddFriends';
+import { Card, Icon, Statistic, Row } from 'antd';
 const { Meta } = Card;
+
 
 class Profile extends React.Component {
 
@@ -45,14 +48,14 @@ class Profile extends React.Component {
         title={this.state.user.nickName}
         description={this.state.user.email}
       />
-        <Row gutter={16}>
-          <Col span={12}>
-            <Statistic title="Sigues" value={1128} />
-            </Col>
-            <Col span={12}>
-              <Statistic title="Te siguen" value={93} />
-            </Col>
+        <Row gutter={1}>
+            
         </Row>
+        <Link to='/friends'>
+        <Statistic title="Amigos" value={1128} />
+        
+        </Link>
+        <AddFriends />
       </Card>
     );
   }
