@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import authenticationService from '../../services/AuthenticationService';
-import AddFriends from '../friends/AddFriends';
-import { Card, Icon, Statistic, Row } from 'antd';
+import { Card, Icon, Row } from 'antd';
+import Counter from '../friends/Counter';
 const { Meta } = Card;
 
 
@@ -32,6 +31,7 @@ class Profile extends React.Component {
         )
   }
 
+
   render() {
     return (
       <Card
@@ -49,13 +49,9 @@ class Profile extends React.Component {
         description={this.state.user.email}
       />
         <Row gutter={1}>
-            
         </Row>
-        <Link to='/friends'>
-        <Statistic title="Amigos" value={1128} />
-        
-        </Link>
-        <AddFriends />
+        <Counter />
+        {/* <AddFriends /> */}
       </Card>
     );
   }

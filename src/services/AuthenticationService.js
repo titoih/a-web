@@ -18,7 +18,7 @@ const postReviews = (userReview) => http.post('/reviews', userReview)
 const getResources = () => http.get('/resources')
   .then(res => Promise.resolve(res.data))
 
-const getFriends = id => http.get('/friends')
+const getFriends = () => http.get('/friends')
   .then(res => Promise.resolve(res.data));
 
 

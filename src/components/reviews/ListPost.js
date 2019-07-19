@@ -19,7 +19,6 @@ class ListPost extends React.Component {
                   />}) : ''
       }
       </div>
-
     )
   }
 }

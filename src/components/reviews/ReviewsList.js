@@ -2,6 +2,7 @@ import React from 'react';
 import authenticationService from '../../services/AuthenticationService';
 import { List, Rate, Comment, Tooltip, Avatar, Icon } from 'antd';
 import moment from 'moment';
+import TheAntifuckingOne from '../misc/TheAntiFuckingOne';
 
 const IconText = ({ type, text }) => (
   <span>
@@ -29,7 +30,6 @@ class ReviewsList extends React.Component  {
 
 
   render() {
-    console.log(this.state)
     return (
       <div>
         <List
@@ -74,7 +74,7 @@ class ReviewsList extends React.Component  {
             </List.Item>
           )}
         />
-        <div style={{display:'block',clear:'both', margin:'2em 0em'}}></div>
+        <TheAntifuckingOne/>
       </div>
     );
   }

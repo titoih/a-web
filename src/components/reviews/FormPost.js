@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import ResourceSelected from './ResourceSelected';
 import AuthenticationService from '../../services/AuthenticationService';
 import { withAuthConsumer } from '../../context/AuthStore';
+import TheAntifuckingOne from '../misc/TheAntiFuckingOne';
 
 const { TextArea } = Input;
 
@@ -76,7 +77,7 @@ class FormPost extends React.Component {
             placeholder="Escribe tu Reseña"
             />
             <button style={{display:'block', margin:'1em'}}>Click</button>
-            <div style={{height:'25px'}}></div>
+            <TheAntifuckingOne/>
           </Form.Item>
         </Form>
     </div>
