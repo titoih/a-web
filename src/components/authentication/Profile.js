@@ -2,6 +2,7 @@ import React from 'react';
 import authenticationService from '../../services/AuthenticationService';
 import { Card, Icon, Row } from 'antd';
 import Counter from '../friends/Counter';
+import ReviewsList from '../reviews/ReviewsList';
 const { Meta } = Card;
 
 
@@ -33,6 +34,7 @@ class Profile extends React.Component {
 
 
   render() {
+    console.log(this.state.user)
     return (
       <Card
       style={{ width: 300, margin:'auto' }}
@@ -51,7 +53,10 @@ class Profile extends React.Component {
         <Row gutter={1}>
         </Row>
         <Counter />
-        {/* <AddFriends /> */}
+        {
+          this.state.user.id ? <ReviewsList theProps={this.state.user.id}/> : ''
+        }
+        
       </Card>
     );
   }

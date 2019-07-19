@@ -16,7 +16,9 @@ class ReviewsList extends React.Component  {
     reviews:[]
   };
 
-  fetchPosts = () => {
+
+
+  fetchFriendsReviews = () => {
     authenticationService.getReviews().then(
       response => {
         this.setState({ reviews: response })
@@ -24,11 +26,25 @@ class ReviewsList extends React.Component  {
     )
   }
 
-  componentDidMount() {
-    this.fetchPosts()
+  fetchUserReviews = (id) => {
+    authenticationService.getUserReviews(id).then(
+      response => {
+        this.setState({ reviews: response })
+      }
+    )
   }
 
+  
 
+  componentDidMount() {
+    if(!this.props.theProps) {
+        this.fetchFriendsReviews()
+    } else {
+      console.log(this.props)
+        this.fetchUserReviews(this.props.theProps)
+      }
+  }
+    
   render() {
     return (
       <div>
