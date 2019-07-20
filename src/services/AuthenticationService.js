@@ -24,6 +24,9 @@ const getResources = () => http.get('/resources')
 const getFriends = () => http.get('/friends')
   .then(res => Promise.resolve(res.data));
 
+const getUsers = () => http.get('/users')
+  .then(res => Promise.resolve(res.data));  
+
   export default { 
     register, 
     login, 
@@ -32,5 +35,6 @@ const getFriends = () => http.get('/friends')
     getUserReviews,
     getResources, 
     postReviews,
-    getFriends 
+    getFriends,
+    getUsers
   }

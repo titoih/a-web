@@ -36,6 +36,7 @@ class Profile extends React.Component {
   render() {
     console.log(this.state.user)
     return (
+      <React.Fragment>
       <Card
       style={{ width: 300, margin:'auto' }}
       cover={
@@ -53,11 +54,9 @@ class Profile extends React.Component {
         <Row gutter={1}>
         </Row>
         <Counter />
-        {
-          this.state.user.id ? <ReviewsList theProps={this.state.user.id}/> : ''
-        }
-        
       </Card>
+      {this.state.user.id ? <ReviewsList theProps={this.state.user.id}/> : ''}
+      </React.Fragment>
     );
   }
 }

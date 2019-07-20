@@ -17,7 +17,7 @@ const Header = (props) => {
       style={navbarBottom}
     >
       <Menu.Item key="5"><Link to="/reviews"><Icon type="home" style={iconHeader}/></Link></Menu.Item>
-      <Menu.Item key="2"><Icon type="search" style={iconHeader}/></Menu.Item>
+      <Menu.Item key="2"><Link to="/search"><Icon type="search" style={iconHeader}/></Link></Menu.Item>
       <Menu.Item key="4"><Icon type="heart" style={iconHeader}/></Menu.Item>
       {
         props.isAuthenticated() ? <Menu.Item key="3"><Link to={`/user/${props.user.id}`}><Icon type="user" style={iconHeader}/></Link></Menu.Item>

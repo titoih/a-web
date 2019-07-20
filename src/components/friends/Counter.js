@@ -11,7 +11,7 @@ class Counter extends React.Component {
     count:0
   }
 
-  fetchPosts = () => {
+  fetchFriends = () => {
     authenticationService.getFriends().then(
       response => {
         console.log(response.length)
@@ -24,7 +24,7 @@ class Counter extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchPosts()
+    this.fetchFriends()
   }
 
   render() {

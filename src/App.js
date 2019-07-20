@@ -11,6 +11,7 @@ import ReviewsPost from './components/reviews/ReviewsPost';
 import BreadCrumb from './components/misc/BreadCrumb';
 import Profile from './components/authentication/Profile';
 import ListFriends from './components/friends/ListFriends';
+import Search from './components/search/Search';
 
 const {  Content } = Layout;
 
@@ -33,6 +34,7 @@ class App extends Component {
               <PrivateRoute exact path="/reviews" component={ReviewsList} />
               <PrivateRoute exact path="/post" component={ReviewsPost} />
               <PrivateRoute exact path="/friends" component={ListFriends} />
+              <PrivateRoute exact path="/search" component={Search} />
             </Switch>
             </div>
         </Content>
