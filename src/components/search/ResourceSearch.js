@@ -1,42 +1,86 @@
 import React from 'react';
-import authenticationService from '../../services/AuthenticationService';
+import { List, Rate, Comment, Tooltip, Avatar, Icon } from 'antd';
+import moment from 'moment';
 import TheAntifuckingOne from '../misc/TheAntiFuckingOne';
-import User from '../misc/User';
+import AuthenticationService from '../../services/AuthenticationService';
 
-class UserSearch extends React.Component {
+const IconText = ({ type, text }) => (
+  <span>
+    <Icon type={type} style={{ marginRight: 8 }} />
+    {text}
+  </span>
+);
+
+class ResourceSearch extends React.Component {
   state={
-    users:[]
+    resources:[]
   }
 
-  fetchUsers = () => {
-    authenticationService.getUsers().then(
+  fetchReviews = () => {
+    AuthenticationService.getAllReviews().then(
       response => {
         this.setState({
-          users:response
+          resources:response
         })
       }
     )
   }
 
   componentDidMount = () => {
-    this.fetchUsers()
+    this.fetchReviews()
   }
   
-
   render() {
+    console.log(this.state.resources)
     return (
-      this.state.users.map((element,index) => {
-      
-      return (
-        <div key={index}>
-        <User element={element} addFriend={true}/>
+      <div>
+        <List
+          itemLayout="vertical"
+          size="large"
+          dataSource={this.state.resources}
+          renderItem={item => (
+            <List.Item
+              key={item.title}
+              actions={
+                [
+                  <IconText type="heart" text="156" />,
+                  <IconText type="message" text="2" />,
+                ]
+              }
+            >
+               <Comment
+                author={item.user.nickName}
+                avatar={
+                  <Avatar
+                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                  alt={item.user.nickName}
+                  />}
+                content={
+                  <p style={{textAlign:"left"}}><i>"{item.comment}"</i></p>
+                }
+                datetime={
+                  <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
+                  <span>{moment().fromNow()}</span>
+                  </Tooltip>
+                }     
+                />
+              <div>
+              {item.resource.kind + ' / ' + item.resource.title}
+              </div>
+              <Rate disabled defaultValue={Number(item.rate)}/>
+              <img
+                style={{display: 'block', margin:'auto'}}
+                alt="logo"
+                src={item.resource.imageURL}
+              />
+            </List.Item>
+          )}
+        />
         <TheAntifuckingOne/>
-        </div>
-      )
-      })
-    )
+      </div>
+    );
   }
+} 
 
-}
+export default ResourceSearch;
 
-export default UserSearch;

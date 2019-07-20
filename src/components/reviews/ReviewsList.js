@@ -17,7 +17,6 @@ class ReviewsList extends React.Component  {
   };
 
 
-
   fetchFriendsReviews = () => {
     authenticationService.getReviews().then(
       response => {
@@ -34,13 +33,10 @@ class ReviewsList extends React.Component  {
     )
   }
 
-  
-
   componentDidMount() {
     if(!this.props.theProps) {
         this.fetchFriendsReviews()
     } else {
-      console.log(this.props)
         this.fetchUserReviews(this.props.theProps)
       }
   }

@@ -1,4 +1,4 @@
-//antigua Card
+//antiguo <Card />
 
 import React from 'react';
 import { Card } from 'antd';
@@ -9,7 +9,6 @@ const { Meta } = Card;
 class User extends React.Component {
 
   state= {
-
     iconType:false
   }
 

@@ -106,11 +106,8 @@ class Login extends React.Component {
     }
 
   render() {
-    console.log(this.props.user)
-    console.log(localStorage)
-    console.log(this.props.isAuthenticated)
     const { user, errors, isAuthenticated }  = this.state;
-    if(isAuthenticated) {
+    if(isAuthenticated && this.props.user.id) {
       return <Redirect to={`/user/${this.props.user.id}`}/>
     }
     return (
@@ -148,61 +145,3 @@ class Login extends React.Component {
 }
 
 export default withAuthConsumer(Login);
-
-// if(this.isEmpty(this.state.errors)) {
-//   this.setState({
-//     errors: {
-//       username: 'Username necesario',
-//       password: 'Password necesaria'
-//     }
-//   })
-// } else if(this.state.user.username === ''){
-//     this.setState({
-//       errors: {
-//         ...this.state.errors,
-//         username: 'Username necesario'
-//       }
-//     })
-// } else if(this.state.user.password === ''){
-//   this.setState({
-//     errors: {
-//       ...this.state.errors,
-//       password: 'Password necesaria'
-//     }
-//   })
-// } else {
-//     if(this.isValid()) {
-//       authenticationService.login(this.state.user)
-//         .then(
-//           (user) => {
-//             this.setState({ 
-//               user: {
-//                 ...this.state.user,
-//                 ...user,
-//                 id: user.id
-//               },
-//               isLogged:true
-//             })
-//           },
-//           (error) => {
-//             const { message, errors } = error.response.data;
-//             this.setState({
-//               errors: {
-//                 ...this.state.errors,
-//                 ...errors,
-//                 password: !errors && message
-//               }
-//             })
-//           }
-//         )
-//     }
-//   }
-// }
-
-// isEmpty = (obj) => {
-// for(var key in obj) {
-//   if(obj.hasOwnProperty(key))
-//     return false;
-//   }
-//   return true;
-// }

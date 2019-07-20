@@ -15,6 +15,9 @@ const getReviews = () => http.get('/reviews')
 const getUserReviews = (id) => http.get(`reviews/user/${id}`)
   .then(res => Promise.resolve(res.data));
 
+  const getAllReviews = () => http.get('reviews/users')
+  .then(res => Promise.resolve(res.data));
+
 const postReviews = (userReview) => http.post('/reviews', userReview)
 .then(res => Promise.resolve(res.data));
 
@@ -36,5 +39,6 @@ const getUsers = () => http.get('/users')
     getResources, 
     postReviews,
     getFriends,
-    getUsers
+    getUsers,
+    getAllReviews
   }
