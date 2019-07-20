@@ -36,7 +36,6 @@ class UserSearch extends React.Component {
       })
     )
   }
-
 }
 
 export default UserSearch;
