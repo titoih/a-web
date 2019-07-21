@@ -13,7 +13,7 @@ const Header = (props) => {
     <Menu
       theme="dark"
       mode="horizontal"
-      defaultSelectedKeys={['2']}
+      defaultSelectedKeys={['5']}
       style={navbarBottom}
     >
       <Menu.Item key="5"><Link to="/reviews"><Icon type="home" style={iconHeader}/></Link></Menu.Item>

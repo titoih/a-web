@@ -27,7 +27,6 @@ const getResources = () => http.get('/resources')
 const getFriends = () => http.get('/friends')
   .then(res => Promise.resolve(res.data));
 
-
 const postFriends = (friendId) => http.post('/friends', friendId)
   .then(res => Promise.resolve(res.data));
 

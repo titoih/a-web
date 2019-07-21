@@ -1,5 +1,6 @@
 import React from 'react';
 import authenticationService from '../../services/AuthenticationService';
+import Favourite from './Favourite';
 import { List, Rate, Comment, Tooltip, Avatar, Icon } from 'antd';
 import moment from 'moment';
 import TheAntifuckingOne from '../misc/TheAntiFuckingOne';
@@ -15,7 +16,6 @@ class ReviewsList extends React.Component  {
   state = {
     reviews:[]
   };
-
 
   fetchFriendsReviews = () => {
     authenticationService.getReviews().then(
@@ -53,7 +53,7 @@ class ReviewsList extends React.Component  {
               key={item.title}
               actions={
                 [
-                  <IconText type="heart" text="156" />,
+                  <Favourite />,
                   <IconText type="message" text="2" />,
                 ]
               }

@@ -4,8 +4,11 @@
 import React from 'react';
 import { Card } from 'antd';
 import { Icon } from 'antd';
+import { message } from 'antd';
 import AuthenticationService from '../../services/AuthenticationService';
+
 const { Meta } = Card;
+
 
 class User extends React.Component {
 
@@ -23,12 +26,14 @@ class User extends React.Component {
 
   handleClick = (friendId) => {
     if(!this.state.iconType) {
+      message.success('Añadido a tus amigos');
       const id = {friendId:friendId}
       AuthenticationService.postFriends(id)
         .then((id) => 
         this.setState({
           iconType:!this.state.iconType
         })
+
         )
     } else {
         this.setState({
