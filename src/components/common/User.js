@@ -27,7 +27,7 @@ class User extends React.Component {
   handleClick = (friendId) => {
     if(!this.state.iconType) {
       message.success('Añadido a tus amigos');
-      const id = {friendId:friendId}
+      const id = {friendId: friendId}
       AuthenticationService.postFriends(id)
         .then((id) => 
         this.setState({

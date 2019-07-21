@@ -42,6 +42,7 @@ class ReviewsList extends React.Component  {
   }
     
   render() {
+    console.log(this.state.reviews)
     return (
       <div>
         <List
@@ -53,7 +54,7 @@ class ReviewsList extends React.Component  {
               key={item.title}
               actions={
                 [
-                  <Favourite />,
+                  <Favourite reviewId= {item.id}/>,
                   <IconText type="message" text="2" />,
                 ]
               }

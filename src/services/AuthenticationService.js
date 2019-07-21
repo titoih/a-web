@@ -33,6 +33,12 @@ const postFriends = (friendId) => http.post('/friends', friendId)
 const getUsers = () => http.get('/users')
   .then(res => Promise.resolve(res.data));  
 
+const postFavourites = (id) => http.post('/reviews/favourites', id)
+  .then(res => Promise.resolve(res.data));
+
+const getFavourites = (id) => http.get('/reviews/favourites', id)
+  .then(res => Promise.resolve(res.data));
+
   export default { 
     register, 
     login, 
@@ -44,5 +50,7 @@ const getUsers = () => http.get('/users')
     getFriends,
     getUsers,
     getAllReviews,
-    postFriends
+    postFriends,
+    postFavourites,
+    getFavourites
   }

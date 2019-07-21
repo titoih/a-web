@@ -1,5 +1,7 @@
 import React from 'react';
 import TitleList from './TitleList';
+import TheAntifuckingOne from '../misc/TheAntiFuckingOne';
+
 
 class ListPost extends React.Component {
 
@@ -18,6 +20,7 @@ class ListPost extends React.Component {
                   showList={this.props.showList}
                   />}) : ''
       }
+      <TheAntifuckingOne/>
       </div>
     )
   }

@@ -1,23 +1,25 @@
 import React from 'react';
 import { Icon } from 'antd';
 import { message } from 'antd';
-
+import AuthenticationService from '../../services/AuthenticationService';
 
 
 class Favourite extends React.Component {
   state={
-    // count:0,
     type:true
   }
 
   handleClick = () => {
-    this.setState({
-      type:!this.state.type
-    })
-     message.success('Añadido a tus Favoritos')
+    const id = {reviewId: this.props.reviewId}
+    AuthenticationService.postFavourites(id)
+      this.setState({
+        type:!this.state.type
+      })
+      message.success('¡Añadido a tus Favoritos!')
   }
 
   render(){
+    console.log(this.props)
     return (
         <React.Fragment>
           <Icon 
