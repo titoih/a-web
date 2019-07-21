@@ -27,6 +27,10 @@ const getResources = () => http.get('/resources')
 const getFriends = () => http.get('/friends')
   .then(res => Promise.resolve(res.data));
 
+
+const postFriends = (friendId) => http.post('/friends', friendId)
+  .then(res => Promise.resolve(res.data));
+
 const getUsers = () => http.get('/users')
   .then(res => Promise.resolve(res.data));  
 
@@ -40,5 +44,6 @@ const getUsers = () => http.get('/users')
     postReviews,
     getFriends,
     getUsers,
-    getAllReviews
+    getAllReviews,
+    postFriends
   }

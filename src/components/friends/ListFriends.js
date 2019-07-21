@@ -1,7 +1,7 @@
 import React from 'react';
 import authenticationService from '../../services/AuthenticationService';
 import TheAntifuckingOne from '../misc/TheAntiFuckingOne';
-import User from '../misc/User';
+import User from '../common/User';
 
 class ListFriends extends React.Component {
 
@@ -21,7 +21,6 @@ class ListFriends extends React.Component {
     this.fetchPosts()
   }
 
-
   render() {
     return (
       this.state.friends.map((element,index) => {
@@ -35,9 +34,6 @@ class ListFriends extends React.Component {
       })
     )
   }
-
-
-
 }
 
 export default ListFriends;

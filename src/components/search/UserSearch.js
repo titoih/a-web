@@ -1,7 +1,7 @@
 import React from 'react';
 import authenticationService from '../../services/AuthenticationService';
 import TheAntifuckingOne from '../misc/TheAntiFuckingOne';
-import User from '../misc/User';
+import User from '../common/User';
 
 class UserSearch extends React.Component {
   state={
@@ -22,14 +22,14 @@ class UserSearch extends React.Component {
     this.fetchUsers()
   }
   
-
   render() {
+    console.log(this.state.users)
     return (
       this.state.users.map((element,index) => {
       
       return (
         <div key={index}>
-        <User element={element} addFriend={true}/>
+        <User element={element} addFriend={true} userId={element.id}/>
         <TheAntifuckingOne/>
         </div>
       )
