@@ -8,7 +8,7 @@ import {
 
 import authenticationService from '../../services/AuthenticationService';
 
-const EMAIL_PATTERN = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+const EMAIL_PATTERN = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
 
 const validations = {
   email: (value) => {
@@ -108,25 +108,12 @@ class Register extends React.Component {
     })
   }
 
-  // isEmpty = (obj) => {
-  //   for(var key in obj) {
-  //       if(obj.hasOwnProperty(key))
-  //           return false;
-  //   }
-  //   return true;
-  // }
-
   isValid = () => {
-    // if(this.isEmpty(this.state.errors)) {
-    //   return false;
-    // } else {
         return !Object.keys(this.state.user)
           .some(attr => this.state.errors[attr])
     }
-  // }
-
-  render() {
-    console.log(this.state)
+ 
+ render() {
     const formItemLayout = {
       labelCol: {
         xs: { span: 24 },
@@ -191,3 +178,10 @@ class Register extends React.Component {
 }
   
 export default Register;
+
+
+
+
+
+
+// const EMAIL_PATTERN = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;

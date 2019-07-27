@@ -12,9 +12,8 @@ class Counter extends React.Component {
   }
 
   fetchFriends = () => {
-    authenticationService.getFriends().then(
-      response => {
-        console.log(response.length)
+    authenticationService.getFriends()
+    .then(response => {
         this.setState({
           dataFriend:[response],
           count:response.length

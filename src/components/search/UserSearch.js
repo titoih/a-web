@@ -23,10 +23,8 @@ class UserSearch extends React.Component {
   }
   
   render() {
-    console.log(this.state.users)
     return (
       this.state.users.map((element,index) => {
-      
       return (
         <div key={index}>
         <User element={element} addFriend={true} userId={element.id}/>

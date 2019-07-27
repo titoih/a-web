@@ -6,7 +6,22 @@ const register = (user) => http.post('/register', user)
 const login = (user) => http.post('/login', user)
   .then(res => Promise.resolve(res.data));
 
+const doEdit = (user) =>   {
+  const data = new FormData();
+    Object.keys(user).forEach(prop => {
+      data.append(prop, user[prop])
+    });
+      return http.put('/edit', data)
+        .then(res => {
+          console.log(res)
+          Promise.resolve(res.data)
+        })
+}
+
 const getProfile = id => http.get(`/user/${id}`)
+  .then(res => Promise.resolve(res.data));
+
+const getEdit = id => http.get(`/edit/${id}`)
   .then(res => Promise.resolve(res.data));
 
 const getReviews = () => http.get('/reviews')
@@ -33,12 +48,18 @@ const postFriends = (friendId) => http.post('/friends', friendId)
 const getUsers = () => http.get('/users')
   .then(res => Promise.resolve(res.data));  
 
-const postFavourites = (id) => http.post('/reviews/favourites', id)
+const postFavourites = (reviewId) => http.post('/reviews/favourites', reviewId)
   .then(res => Promise.resolve(res.data));
 
-const getFavourites = (id) => http.get('/reviews/favourites', id)
+const getFavourites = (reviewId) => http.get('/reviews/favourites', reviewId)
   .then(res => Promise.resolve(res.data));
 
+const logout = () => {
+  return http.get('/logout')
+    .then(res => Promise.resolve(res.data))
+}
+
+  // const logout = () => http.post(`/logout`)
   export default { 
     register, 
     login, 
@@ -52,5 +73,8 @@ const getFavourites = (id) => http.get('/reviews/favourites', id)
     getAllReviews,
     postFriends,
     postFavourites,
-    getFavourites
+    getFavourites,
+    doEdit,
+    getEdit,
+    logout
   }

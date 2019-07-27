@@ -1,6 +1,6 @@
 import React from 'react';
 import authenticationService from '../../services/AuthenticationService';
-import Favourite from './Favourite';
+import AddFavourite from './AddFavourite';
 import { List, Rate, Comment, Tooltip, Avatar, Icon } from 'antd';
 import moment from 'moment';
 import TheAntifuckingOne from '../misc/TheAntiFuckingOne';
@@ -33,16 +33,28 @@ class ReviewsList extends React.Component  {
     )
   }
 
-  componentDidMount() {
-    if(!this.props.theProps) {
-        this.fetchFriendsReviews()
-    } else {
-        this.fetchUserReviews(this.props.theProps)
+  fetchAllReviews = () => {
+    authenticationService.getAllReviews().then(
+      response => {
+        this.setState({
+          reviews:response
+        })
       }
+    )
+  }
+
+  componentDidMount() {
+
+    if (this.props.theProps) {
+      this.fetchUserReviews(this.props.theProps)
+    } else if(this.props.allReviews) {
+      this.fetchAllReviews()
+    } else {
+      this.fetchFriendsReviews()
+    }
   }
     
   render() {
-    console.log(this.state.reviews)
     return (
       <div>
         <List
@@ -54,7 +66,7 @@ class ReviewsList extends React.Component  {
               key={item.title}
               actions={
                 [
-                  <Favourite reviewId= {item.id}/>,
+                  <AddFavourite reviewId= {item.id}/>,
                   <IconText type="message" text="2" />,
                 ]
               }
@@ -63,9 +75,13 @@ class ReviewsList extends React.Component  {
                 author={item.user.nickName}
                 avatar={
                   <Avatar
-                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-                  alt={item.user.nickName}
-                  />}
+                    src={
+                    item.user.avatarURL 
+                    ? item.user.avatarURL 
+                    : "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                    }
+                    alt={item.user.nickName + 'imagen de perfil'}
+                    />}
                 content={
                   <p style={{textAlign:"left"}}><i>"{item.comment}"</i></p>
                 }
@@ -80,7 +96,7 @@ class ReviewsList extends React.Component  {
               </div>
               <Rate disabled defaultValue={Number(item.rate)}/>
               <img
-                style={{display: 'block', margin:'auto'}}
+                style={{display: 'block', margin:'auto', width:'50%'}}
                 alt="logo"
                 src={item.resource.imageURL}
               />

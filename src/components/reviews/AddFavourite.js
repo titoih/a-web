@@ -4,7 +4,7 @@ import { message } from 'antd';
 import AuthenticationService from '../../services/AuthenticationService';
 
 
-class Favourite extends React.Component {
+class AddFavourite extends React.Component {
   state={
     type:true
   }
@@ -19,7 +19,6 @@ class Favourite extends React.Component {
   }
 
   render(){
-    console.log(this.props)
     return (
         <React.Fragment>
           <Icon 
@@ -33,5 +32,5 @@ class Favourite extends React.Component {
   }
 }
 
-export default Favourite;
+export default AddFavourite;
 

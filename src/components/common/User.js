@@ -49,7 +49,10 @@ class User extends React.Component {
       cover={
         <img
         alt="example"
-        src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"/>
+        src={this.props.element.avatarURL 
+        ? this.props.element.avatarURL 
+        : "https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"}
+        />
       }
       >
       <Meta

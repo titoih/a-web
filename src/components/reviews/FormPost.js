@@ -5,6 +5,8 @@ import ResourceSelected from './ResourceSelected';
 import AuthenticationService from '../../services/AuthenticationService';
 import { withAuthConsumer } from '../../context/AuthStore';
 import TheAntifuckingOne from '../misc/TheAntiFuckingOne';
+import { Button } from 'antd';
+
 
 const { TextArea } = Input;
 
@@ -48,7 +50,6 @@ class FormPost extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     if(this.state.isPosted) {
       return <Redirect to={`/user/${this.props.user.id}`}/>
     }
@@ -76,7 +77,7 @@ class FormPost extends React.Component {
             rows={4} 
             placeholder="Escribe tu Reseña"
             />
-            <button style={{display:'block', margin:'1em'}}>Click</button>
+            <Button htmlType="submit" type="primary">Publicar</Button>
             <TheAntifuckingOne/>
           </Form.Item>
         </Form>
