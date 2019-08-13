@@ -8,14 +8,16 @@ import { Link } from 'react-router-dom';
 const { Meta } = Card;
 
 class Profile extends React.Component {
+  
 
   state={
     user:{
       email:'',
       nickName:'',
       id:'',
-      avatarURL:'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png'
-    }
+      avatarURL:''
+    },
+    reload:false
   }
   
   componentDidMount() {
@@ -29,25 +31,31 @@ class Profile extends React.Component {
             nickName: user.nickName,
             id: user.id,
             avatarURL: user.avatarURL
-          }  
+          },
+          reload:this.props.location.avatarURL
           }),
         (error) => console.error(error)
         )
   }
 
   render() {
+    if(this.state.reload) {
+      window.location.reload(); 
+    }
     return (
       <React.Fragment>
       <Card
       style={{ width: 300, margin:'auto' }}
       cover={
-        <Link to='/upload'>
         <img
           alt="example"
-          src={this.state.user.avatarURL}
+          src={
+            this.state.user.avatarURL
+            ? this.state.user.avatarURL
+            : 'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png'
+            }
           style={{width:'100%'}}
           />
-        </Link>
       }
       actions={
       [<Icon type="setting" />, 

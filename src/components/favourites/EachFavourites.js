@@ -20,7 +20,9 @@ class EachFavourite extends React.Component {
                 author={item.user.nickName}
                 avatar={
                   <Avatar
-                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                  src={item.user.avatarURL 
+                  ? item.user.avatarURL  
+                  : "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"}
                   alt={item.nickName}
                   />}
                 content={
@@ -38,9 +40,10 @@ class EachFavourite extends React.Component {
               </div>
               <Rate disabled defaultValue={Number(item.rate)}/>
               <img
-                style={{display: 'block', margin:'auto'}}
+                style={{display: 'block', margin:'auto', width:'50%'}}
                 alt="logo"
                 src={item.resource.imageURL}
+                
               />
             </List.Item>
           )}

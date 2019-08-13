@@ -62,9 +62,11 @@ class Edit extends React.Component {
           nickName:user.nickName
         }
       }))
+      
   }
  
   render() {
+   
     const formItemLayout = {
       labelCol: {
         xs: { span: 24 },
@@ -78,7 +80,12 @@ class Edit extends React.Component {
     
     const { user, errors, isEdited, spin } =  this.state;
     if (isEdited) {
-      return <Redirect to={`/user/${this.props.user.id}`} />
+      return <Redirect 
+      to={{
+            pathname: `/user/${this.props.user.id}`,
+            avatarURL: true
+        }}
+      />
     }
 
     return (

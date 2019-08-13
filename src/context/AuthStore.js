@@ -19,13 +19,14 @@ class AuthStore extends Component {
   }
 
   render() {
+    console.log(this.state.user)
     return (
       <AuthContext.Provider value={{
         user: this.state.user,
         onUserChange: this.handleUserChange,
-        isAuthenticated: this.isAuthenticated
+        isAuthenticated: this.isAuthenticated,
       }}>
-        {this.props.children}
+        {this.props.children} 
       </AuthContext.Provider>
     );
   }

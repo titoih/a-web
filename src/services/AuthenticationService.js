@@ -13,7 +13,6 @@ const doEdit = (user) =>   {
     });
       return http.put('/edit', data)
         .then(res => {
-          console.log(res)
           Promise.resolve(res.data)
         })
 }

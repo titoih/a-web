@@ -1,6 +1,3 @@
-//antiguo <Card />
-//pendiente handleIcon search eg
-
 import React from 'react';
 import { Card } from 'antd';
 import { Icon } from 'antd';

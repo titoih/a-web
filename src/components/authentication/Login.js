@@ -109,7 +109,7 @@ class Login extends React.Component {
     const { user, errors, isAuthenticated }  = this.state;
     if(isAuthenticated && this.props.user.id) {
       return <Redirect to={`/user/${this.props.user.id}`}/>
-    }
+    } 
     return (
       <Form onSubmit={this.handleSubmit} className="login-form">
         <Form.Item>
